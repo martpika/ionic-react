@@ -9,21 +9,11 @@ export type SampleState = {
   }
 }
 
-type SampleActions = {
-  updateInformation: ( information: Partial<SampleState["information"]> ) => void
-}
-
-export const useSampleStoreBase = create<SampleState & SampleActions>(set => ({
+export const useSampleStoreBase = create<SampleState>(() => ({
   information: {
     title: "Title",
     description: "Description"
   },
-  updateInformation: (information) => set((state) => ({
-    information: {
-      ...state.information,
-      ...information
-    }
-  })) 
 })) 
 
 export const updateSampleInformation = ( newInformation: SampleState["information"]) => useSampleStoreBase.setState({
