@@ -3,12 +3,13 @@ import {
   IonPage } from "@ionic/react"
 
 
-const Sample = () =>{
+const Sample = () => {
 
   return (
     <IonPage>
       <IonContent>
-        <main></main>
+        <main>
+        </main>
       </IonContent>
     </IonPage>
   )
