@@ -23,25 +23,30 @@ import './theme/variables.css'
 import './theme/tailwind.css'
 import { SamplePage } from './pages/sample';
 import { InnerTabs } from './pages/tabs/inner';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 setupIonicReact();
+
+export const queryClient = new QueryClient()
 
 const App = () => {
 
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Redirect path='/' to="/sample" />
-          <Route exact path="/sample">
-            <SamplePage />
-          </Route>
-          <Route path="/inner/:page">
-            <InnerTabs />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
+    <QueryClientProvider client={ queryClient }>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Redirect path='/' to="/sample" />
+            <Route exact path="/sample">
+              <SamplePage />
+            </Route>
+            <Route path="/inner/:page">
+              <InnerTabs />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </QueryClientProvider>
   )
 }
 
