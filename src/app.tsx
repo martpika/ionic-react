@@ -24,32 +24,34 @@ import '@ionic/react/css/display.css';
 /* Tailwind styles */
 import './theme/variables.css'
 import './theme/tailwind.css'
-import { InnerTabs } from './pages/tabs/inner';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AccountPage } from './pages/account';
+import { FakePage } from './pages/fake';
 
 setupIonicReact();
 
-export const queryClient = new QueryClient()
 
 const App = () => {
 
   return (
-    <QueryClientProvider client={ queryClient }>
-      <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            <Redirect path='/' to="/account" />
-            <Route exact path="/account">
-              <AccountPage />
-            </Route>
-            <Route path="/inner/:page">
-              <InnerTabs />
-            </Route>
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </IonApp>
-    </QueryClientProvider>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Redirect path='/' to="/account" />
+          <Route exact path="/account">
+            <AccountPage />
+          </Route>
+          <Route exact path="/login">
+            <FakePage />
+          </Route>
+          <Route exact path="/toc">
+            <FakePage />
+          </Route>
+          <Route exact path="/privacy-policy">
+            <FakePage />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
   )
 }
 

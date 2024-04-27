@@ -3,16 +3,18 @@ import {
   IonPage } from "@ionic/react"
 
 
-const Sample = () =>{
+const Account = () => {
 
   return (
     <IonPage>
       <IonContent>
-        <main></main>
+        <main>
+          <h1>Fake Page</h1>
+        </main>
       </IonContent>
     </IonPage>
   )
 }
 
 
-export default Sample
+export default Account

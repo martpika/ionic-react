@@ -1,1 +1,0 @@
-export { default as InnerSamplePage } from './sample'
