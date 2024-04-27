@@ -10,14 +10,24 @@ import z from "zod"
 
 
 const accountFormSchema = z.object({
-  username: z.string().min(1, "error.firstname.required"),
-  email: z.string().email().or(z.string().regex(/^\d+$/).min(9)),
-  birth: z.string({ required_error: "error.birth.required" }),
+  username: z
+    .string()
+    .min(1, "Username is required"),
+  email: z
+    .string()
+    .email("Please enter a proper email"),
+  birth: z
+    .string({ required_error: "Birth is required" }),
   password: z
     .string()
-    .min(8, "error.password.rules")
-    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/, "error.password.rules"),
-  confirmPassword: z.string().min(8, "error.cofirm_password.required")
+    .min(8, "Atleast 8 characters")
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/, "Please follow format"),
+  confirmPassword: z
+    .string()
+    .min(8, "Password does not match")
+}).refine(val => val.password===val.confirmPassword, {
+  message: "Password does not match",
+  path: ['confirmPassword']
 })
 
 export type AccountFormSchema = z.infer<typeof accountFormSchema>
@@ -53,7 +63,7 @@ export const useAccountForm = () =>{
     }
     const { confirmPassword, ...rest } = data
   }
-
+  
   const toggleNewPasswordVisibility = () => setPasswordVisibility(prev => ({
     ...prev,
     password: !prev.password

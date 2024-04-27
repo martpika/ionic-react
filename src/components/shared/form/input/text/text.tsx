@@ -26,21 +26,20 @@ const Text = forwardRef<HTMLInputElement,TextProps>(({
       lines="none">
       <div className="w-full flex flex-col items-start">
         <label 
-            htmlFor={ attributes.id }
-            className={`mb-2`}>{ label }</label>
-          <input 
-            ref={ ref }
-            { ...rest }
-            { ...attributes }
-            type="text" 
-            className={`py-3 px-4 border font-figtree border-[#C2C3C4] rounded-lg placeholder-[#7A7D80] text-black w-full`}
-            placeholder={ placeholder }
-            aria-labelledby={ `error-${ attributes.id }` } />
-          
+          htmlFor={ attributes.id }
+          className={`mb-2`}>{ label }</label>
+        <input 
+          ref={ ref }
+          { ...rest }
+          { ...attributes }
+          type="text" 
+          className={`py-3 px-4 border font-figtree border-[#C2C3C4] rounded-lg placeholder-[#7A7D80] text-black w-full`}
+          placeholder={ placeholder }
+          aria-labelledby={ `error-${ attributes.id }` } />
         { error && (
           <span
             id={ `error-${ attributes.id }` } 
-            className=" text-xs text-error-color px-4 mt-1">{ error }</span>
+            className="text-xs text-red-600">{ error }</span>
         ) }
       </div>
     </IonItem>

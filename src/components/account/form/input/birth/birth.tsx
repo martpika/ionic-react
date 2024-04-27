@@ -6,6 +6,7 @@ import {
   IonModal } from "@ionic/react"
 import { UseFormWatch } from "react-hook-form"
 import { AccountFormSchema } from "../../hook"
+import { forwardRef } from "react"
 
 
 type BirthProps = {
@@ -16,12 +17,12 @@ type BirthProps = {
   error?: string
 }
 
-const Birth = ({ 
+const Birth = forwardRef(({ 
   label,
   placeholder,
   error,
   watch,
-  handleDateSelection }: BirthProps) =>{
+  handleDateSelection }: BirthProps, ref) =>{
   
   return (
     <IonItem 
@@ -50,13 +51,13 @@ const Birth = ({
               id="birth" />
           </IonModal>
         </div>
-        { !!error && (
-          <span className=" text-xs text-error-color px-4 mt-1">{ error }</span>
+        { !!error && !watch("birth") && (
+          <span className="text-xs text-red-600">{ error }</span>
         ) }
       </div>
     </IonItem>
   )
-}
+})
 
 
 export default Birth
