@@ -1,6 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { 
-  useContext, 
   useRef, 
   useState } from "react"
 import { 
@@ -12,7 +11,7 @@ import z from "zod"
 const accountFormSchema = z.object({
   username: z
     .string()
-    .min(1, "Username is required"),
+    .min(3, "Atleast 3 characters"),
   email: z
     .string()
     .email("Please enter a proper email"),
@@ -55,13 +54,14 @@ export const useAccountForm = () =>{
   
   const handleFormSubmit: SubmitHandler<AccountFormSchema> = data => {
     if ( data.confirmPassword !== data.password ) {
-      setError("password", {
-        message: "error.password.mismatch"
+      setError("confirmPassword", {
+        message: "Password does not match"
       })
       
       return
     }
-    const { confirmPassword, ...rest } = data
+
+    console.log(data)
   }
   
   const toggleNewPasswordVisibility = () => setPasswordVisibility(prev => ({
