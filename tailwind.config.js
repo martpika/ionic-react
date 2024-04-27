@@ -26,6 +26,7 @@ module.exports = {
       backgroundImage: {
       },
       fontFamily: {
+        "figtree": ["Figtree", "sans-serif"]
       },
       colors: {
       }

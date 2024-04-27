@@ -1,5 +1,8 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { 
+  IonApp, 
+  IonRouterOutlet, 
+  setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
@@ -21,9 +24,9 @@ import '@ionic/react/css/display.css';
 /* Tailwind styles */
 import './theme/variables.css'
 import './theme/tailwind.css'
-import { SamplePage } from './pages/sample';
 import { InnerTabs } from './pages/tabs/inner';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { AccountPage } from './pages/account';
 
 setupIonicReact();
 
@@ -36,9 +39,9 @@ const App = () => {
       <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
-            <Redirect path='/' to="/sample" />
-            <Route exact path="/sample">
-              <SamplePage />
+            <Redirect path='/' to="/account" />
+            <Route exact path="/account">
+              <AccountPage />
             </Route>
             <Route path="/inner/:page">
               <InnerTabs />

@@ -1,19 +1,19 @@
 import { 
   IonContent, 
   IonPage } from "@ionic/react"
+import { Account as AccountContent } from "@/components/account"
 
 
-const Sample = () => {
+const Account = () => {
 
   return (
     <IonPage>
       <IonContent>
-        <main>
-        </main>
+        <AccountContent />
       </IonContent>
     </IonPage>
   )
 }
 
 
-export default Sample
+export default Account
