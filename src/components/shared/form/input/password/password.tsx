@@ -41,7 +41,7 @@ const Password = forwardRef<HTMLInputElement,PasswordProps>(({
                 { ...rest }
                 { ...attributes }
                 type={ isVisible? "text" : "password" }
-                className={`text-surface-on block p-4 w-full bg-transparent rounded border border-outline-color appearance-none no-shadow focus:outline-none focus:border-outline-color peer ${ error? "border-primary-color focus:border-primary-color" : "" }`}
+                className={`py-3 px-4 border font-figtree border-[#C2C3C4] rounded-lg placeholder-[#7A7D80] text-black w-full`}
                 placeholder={ placeholder }
                 aria-labelledby={ `error-${ attributes.id }` } />
               <button

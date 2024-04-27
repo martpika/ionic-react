@@ -36,7 +36,9 @@ const App = () => {
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Redirect path='/' to="/account" />
+          <Route exact path="/">
+            <Redirect to="/account" />
+          </Route>
           <Route exact path="/account">
             <AccountPage />
           </Route>
